@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<script src ="../AnimationJS/Community/1.0/Animation.js"></script>
+<style>
+    #box{width:100px;
+    height:100px;
+    background-color: burlywood;
+    position: relative;
+    top:400px;
+    left:50%;
+    transform: translate(-50%,-50%)
+    }
+</style>
+<body>
+    <div id="box"> 我是一个盒子</div>
+<a href="       https://gitee.com/skyogo_01/AnimationJS/wikis/do方法?sort_id=432802"> 链接</a>
+    <script>
+      // const box =document.querySelector('#box');
+      aj().initListener();
+      aj().create("tjt2","height",100,200,"","px");          //动画的变化顺序根据 定义的先后进行执行，跟joinList顺序无关 。 先高后宽。
+      aj().create("tjt","width",100,200,"","px");
+      aj().create("tjt1","fontSize",1,2,"","em");
+      aj().create('tjt3',"transform",0,250,"rotateZ(","deg")
+      aj().bind('tjt740',"tjt&tjt1&tjt2&tjt3")
+      let num = 1
+
+    
+      document.getElementById("box").onclick =function(){
+
+        let a = setInterval(()=>{
+          console.log(`${num++}`)},1000)
+          // aj().joinList("#box","tjt",250,"")            // 250ms  = 1s 这个类库这么写的/。
+          // aj().joinList("#box","tjt2",250,"")
+          // aj().joinList("#box","tjt1",250,"(function(){console.log('结束')}())")
+          
+      aj().bindDo("#box","tjt740",500,"console.log('绑定多个动画结束')")   // 同时 旋转变大/ 想要分段 还得用前面的方法
+        }                     //1000秒对应每一个动画执行的时间  共4秒 
+          // 位置旋转出现偏差 因为绝对定位的原因 css
+    </script>
+</body>
+</html>

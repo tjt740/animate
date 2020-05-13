@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Animation.js - Demo</title>
+    </head>
+    <style>
+    </style>
+    <body style="background: black;">
+        <div style="height: 200px;width: 200px;background: white;position: relative;top: 0px;color: red;border-radius: 50%;text-align: center;font-size: 30px;" id="test"><br><br>Animation.js</div>
+        <br>
+        <hr>
+        <br>
+        <button id= "hi" >111盒子</button>
+        <button id="hide">点我隐藏</button>
+        <button id="show">点我显示</button>
+        <button id="rotate360">点我顺时针旋转360度</button>
+        <button id="rotate-360">点我逆时针旋转360度</button>
+        <br>
+        <button id="hide-and-rotate360">点我隐藏加顺时针旋转360度</button>
+        <button id="show-and-rotate-360">点我显示加逆时针旋转360度</button>
+        <div id="box" style="width:100px;
+        height:100px;
+        background-color: burlywood;
+        position: relative;
+        top:400px;
+        left:50%;
+        transform: translate(-50%,-50%)"></div>
+        <script src="Community/1.0/Animation.js"></script>
+        <script>
+        
+
+            aj().initListener();
+            aj().create("hi","width",100,400,"","px");
+            aj().create("hide","opacity",1,0,"","");
+            aj().create("show","opacity",0,1,"","");
+            aj().create("rotate360","transform",0,360,"rotate(","deg)");
+            aj().create("rotateN360","transform",360,0,"rotate(","deg)");
+            aj().bind("hide-and-rotate360","hide&rotate360");
+            aj().bind("show-and-rotateN360","show&rotateN360");
+            document.getElementById("hide").onclick = function(){
+                aj().joinList("#test","hide",200);
+            }
+            document.getElementById("hi").onclick = function(){
+                aj().joinList("#box","hi",500);
+            }
+            document.getElementById("show").onclick = function(){
+                aj().joinList("#test","show",500);
+            }
+            document.getElementById("rotate360").onclick = function(){
+                aj().joinList("#test","rotate360",500);
+            }
+            document.getElementById("rotate-360").onclick = function(){
+                aj().joinList("#test","rotateN360",500);
+            }
+            document.getElementById("hide-and-rotate360").onclick = function(){
+                aj().bindJoinList("#test","hide-and-rotate360",500);
+            }
+            document.getElementById("show-and-rotate-360").onclick = function(){
+                aj().bindJoinList("#test","show-and-rotateN360",500);
+            }
+        </script>
+    </body>
+</html>
